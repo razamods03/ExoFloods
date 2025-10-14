@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metode Pembayaran Doraemon</title>
+    <style>
+        /* CSS untuk Efek Berkedip (Neon Biru) */
+        @keyframes blink-neon-blue {
+            0%, 100% {
+                color: #ffffff; /* Putih terang saat menyala */
+                text-shadow: 0 0 5px #00FFFF, 0 0 10px #00FFFF, 0 0 15px #00FFFF; /* Efek neon biru */
+                opacity: 1;
+            }
+            50% {
+                color: #0000FF; /* Warna biru saat redup */
+                text-shadow: none;
+                opacity: 0.5;
+            }
+        }
+
+        /* CSS untuk Body (Background Doraemon) */
+        body {
+            /* Ganti 'LINK_GAMBAR_DORAEMON_ANDA' dengan URL gambar Anda */
+            background-image: url('https://files.catbox.moe/7bp2uc.jpg');
+            background-size: cover; /* Memastikan gambar menutupi seluruh background */
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Gambar tetap saat scroll */
+            font-family: sans-serif;
+            color: #FFFFFF; /* Warna teks default */
+            padding: 20px;
+            min-height: 100vh;
+        }
+
+        /* Styling Kontainer Metode Pembayaran */
+        .payment-container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(0, 0, 50, 0.8); /* Background semi-transparan biru gelap */
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 255, 0.5); /* Bayangan neon biru */
+            border: 2px solid #00FFFF;
+            text-align: center;
+        }
+
+        /* Style untuk Judul Utama (Berkedip) */
+        .main-title {
+            font-size: 2em;
+            margin-bottom: 20px;
+            font-weight: bold;
+            animation: blink-neon-blue 1.5s infinite alternate; /* Menerapkan animasi berkedip */
+        }
+
+        /* Style untuk Setiap Metode Pembayaran */
+        .method {
+            margin: 15px 0;
+            padding: 10px;
+            border: 1px solid #00FFFF;
+            border-radius: 8px;
+            background-color: rgba(0, 0, 80, 0.9);
+            transition: transform 0.3s ease;
+        }
+
+        .method:hover {
+            transform: scale(1.03); /* Efek zoom saat di-hover */
+            box-shadow: 0 0 10px #00FFFF;
+        }
+
+        /* Style untuk Nama Bank/Dompet (Berkedip) */
+        .method-name {
+            font-size: 1.5em;
+            margin-bottom: 5px;
+            animation: blink-neon-blue 1s infinite alternate; /* Menerapkan animasi berkedip */
+        }
+
+        /* Style untuk Tautan (Link) */
+        .payment-link {
+            display: inline-block;
+            margin-top: 10px;
+            padding: 8px 15px;
+            background-color: #00FFFF; /* Warna tombol/link */
+            color: #000000;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .payment-link:hover {
+            background-color: #00E5EE;
+            box-shadow: 0 0 5px #00FFFF;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="payment-container">
+        <h1 class="main-title">METODE PEMBAYARAN GANIS MARISKA FEBRIANA</h1>
+        
+        <div class="method">
+            <div class="method-name">DANA</div>
+            <p>ID DANA: **0857-7411-1004**</p>
+            <a href="LINK_PEMBAYARAN_DANA_ANDA" class="payment-link" target="_blank">Bayar Via DANA</a>
+        </div>
+
+        <div class="method">
+            <div class="method-name">MAYBANK</div>
+            <p>No. Rekening: **8275919755**</p>
+            <a href="LINK_PEMBAYARAN_MAYBANK_ANDA" class="payment-link" target="_blank">Bayar Via MAYBANK</a>
+        </div>
+
+        <div class="method">
+            <div class="method-name">BCA</div>
+            <p>No. Rekening: **6840433682**</p>
+            <a href="LINK_PEMBAYARAN_BCA_ANDA" class="payment-link" target="_blank">Bayar Via BCA</a>
+        </div>
+
+    </div>
+
+</body>
+</html>

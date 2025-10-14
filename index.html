@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pembayaran - Kantong Ajaib Payment!</title>
+    <style>
+        /* Palet Warna Doraemon */
+        :root {
+            --dora-blue: #2986cc; /* Biru Tubuh */
+            --dora-white: #ffffff; /* Putih Wajah/Mata */
+            --dora-red: #f80606; /* Merah Kerah/Lidah */
+            --dora-yellow: #ddb551; /* Kuning Lonceng */
+            --dora-bg-light: #e8eaea; /* Latar Belakang Cerah */
+            --dora-text-dark: #3b402a; /* Teks Gelap */
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: var(--dora-bg-light);
+            color: var(--dora-text-dark);
+            margin: 0;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: var(--dora-white);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            border: 5px solid var(--dora-blue); /* Garis luar biru ala Doraemon */
+        }
+
+        h1 {
+            color: var(--dora-red); /* Judul Merah mencolok */
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 0 var(--dora-yellow); /* Efek bayangan kuning */
+        }
+
+        .header-desc {
+            color: var(--dora-blue);
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .payment-summary {
+            background-color: var(--dora-yellow);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            color: var(--dora-text-dark);
+            font-weight: bold;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .payment-summary strong {
+            font-size: 1.5em;
+            color: var(--dora-red);
+        }
+
+        .payment-method {
+            text-align: left;
+            margin-bottom: 20px;
+        }
+
+        .payment-method h2 {
+            color: var(--dora-blue);
+            border-bottom: 2px solid var(--dora-red);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+        }
+
+        .method-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--dora-bg-light);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 10px;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            border-left: 5px solid transparent;
+        }
+
+        .method-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .method-item.dana { border-left-color: #1c97f6; } /* Warna DANA */
+        .method-item.bca { border-left-color: #e50a13; } /* Warna BCA */
+        .method-item.maybank { border-left-color: #ffcc00; } /* Warna Maybank */
+
+        .method-logo {
+            font-weight: bold;
+            font-size: 1.2em;
+        }
+
+        .method-info {
+            flex-grow: 1;
+            margin-left: 15px;
+        }
+
+        .button {
+            background-color: var(--dora-red);
+            color: var(--dora-white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+            font-weight: bold;
+            margin-top: 15px;
+            box-shadow: 0 4px 0 var(--dora-yellow); /* Lonceng effect */
+        }
+
+        .button:hover {
+            background-color: #e60505; /* Merah sedikit gelap */
+        }
+
+        /* Detail Pembayaran Tersembunyi */
+        .details {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px dashed var(--dora-blue);
+            border-radius: 5px;
+            background-color: #f7f9fb;
+            text-align: center;
+            display: none; /* Awalnya disembunyikan */
+        }
+
+        .details p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+
+        .copy-btn {
+            background-color: var(--dora-blue);
+            color: var(--dora-white);
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kantong Ajaib Payment!</h1>
+        <p class="header-desc">"Pilih cara bayar, seperti mengeluarkan alat dari kantong ajaib!"</p>
+
+        <div class="payment-summary">
+            Total Pembayaran: <br>
+            <strong>Rp 125.000</strong>
+            <p style="font-size:0.8em; margin-top: 5px;">Kode Unik: 500 (Harap transfer tepat!)</p>
+        </div>
+
+        <div class="payment-method">
+            <h2>Pilih Metode Pembayaran:</h2>
+
+            <div class="method-item dana" onclick="toggleDetails('dana-details')">
+                <div class="method-logo" style="color: #1c97f6;">DANA</div>
+                <div class="method-info">Virtual Account (Otomatis)</div>
+                <span style="color: var(--dora-red); font-size: 1.2em;">&gt;</span>
+            </div>
+            <div class="details" id="dana-details">
+                <p><strong>Nomor DANA:</strong> 0857-7411-1004 <button class="copy-btn">Salin</button></p>
+                <p><strong>Atas Nama:</strong> Ganis Mariska Febriana</p>
+                <p style="color: var(--dora-red); font-weight: bold;">Pastikan nama tujuan sudah benar!</p>
+            </div>
+
+            <div class="method-item bca" onclick="toggleDetails('bca-details')">
+                <div class="method-logo" style="color: #e50a13;">BCA</div>
+                <div class="method-info">Transfer Bank (Manual/Virtual Account)</div>
+                <span style="color: var(--dora-red); font-size: 1.2em;">&gt;</span>
+            </div>
+            <div class="details" id="bca-details">
+                <p><strong>Nomor Rekening:</strong> 6840433682 <button class="copy-btn">Salin</button></p>
+                <p><strong>Atas Nama:</strong> Ganis Mariska Febriana</p>
+                <p style="color: var(--dora-blue);">Kode Bank: 014</p>
+            </div>
+
+            <div class="method-item maybank" onclick="toggleDetails('maybank-details')">
+                <div class="method-logo" style="color: #ffcc00;">MAYBANK</div>
+                <div class="method-info">Transfer Bank (Manual)</div>
+                <span style="color: var(--dora-red); font-size: 1.2em;">&gt;</span>
+            </div>
+            <div class="details" id="maybank-details">
+                <p><strong>Nomor Rekening:</strong> 8275919755 <button class="copy-btn">Salin</button></p>
+                <p><strong>Atas Nama:</strong> Ganis Mariska Febriana</p>
+                <p style="color: var(--dora-blue);">Mohon konfirmasi setelah transfer.</p>
+            </div>
+            
+        </div>
+
+        <button class="button">Konfirmasi Pembayaran</button>
+
+    </div>
+
+    <script>
+        function toggleDetails(id) {
+            var detail = document.getElementById(id);
+            var allDetails = document.querySelectorAll('.details');
+
+            // Sembunyikan semua detail kecuali yang diklik
+            allDetails.forEach(function(item) {
+                if (item.id !== id && item.style.display === 'block') {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Toggle detail yang diklik
+            if (detail.style.display === 'block') {
+                detail.style.display = 'none';
+            } else {
+                detail.style.display = 'block';
+            }
+        }
+
+        // Fungsi Salin (hanya contoh)
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', function(e) {
+                e.stopPropagation(); // Mencegah toggleDetails dipanggil
+                var textToCopy = this.previousSibling.textContent.trim();
+                
+                // Logika salin ke clipboard (di browser nyata)
+                // Di sini kita hanya menampilkan alert sebagai simulasi
+                alert('Berhasil menyalin: ' + textToCopy.split(':')[1].trim());
+            });
+        });
+    </script>
+
+</body>
+</html>
